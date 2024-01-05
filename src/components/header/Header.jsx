@@ -17,6 +17,9 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[location])
 
   const controlNavbar=()=>{
     console.log(window.scrollY)
