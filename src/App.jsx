@@ -13,12 +13,12 @@ import Footer from './components/footer/Footer'
 import Error from './pages/404/Error'
 import Explore from './pages/explore/Explore'
 
-
 function App() {
   const dispatch=useDispatch();
   const {url}=useSelector((state)=>state.home)
   useEffect(()=>{
      apiConfiguration();
+     genresCall()
   },[])
   const apiConfiguration=()=>{
     fetchDataFromApi('/configuration')
@@ -31,6 +31,20 @@ function App() {
       }
       dispatch(getApiConfiguration(url));
     })
+  }
+  const genresCall=async()=>{
+    let promises=[]
+    let endPoints=['tv','movie' ]
+    let allGenres={}
+    endPoints.forEach((url)=>{
+      promises.push(fetchDataFromApi(`/genre/${url}/list`))
+    })
+    const data=await Promise.all(promises)
+    data.map(({genres})=>{
+      return genres.map((item)=>(allGenres[item.id]=item))
+    })
+    console.log(allGenres)
+    dispatch(getGenres(allGenres))
   }
   return (
     <BrowserRouter>
