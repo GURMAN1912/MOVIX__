@@ -63,7 +63,7 @@ export default function Carousel({data,loading}) {
                         const posterUrl=item.poster_path? url.poster+item.poster_path:PosterFallback;
                         console.log(posterUrl)
                         return(
-                            <div className="carouselItem" onClick={()=>navigate(`/${item.media_type}/${item.id}`)} key={item.id}>
+                            <div className="carouselItem" onClick={()=>navigate(`/${item.media_type? item.media_type :item.title        ? 'movie':'tv'}/${item.id}`)} key={item.id}>
                                 <div className="posterBlock">
                                     <Img src={posterUrl}/>
                                 <CircleRating rating={item.vote_average.toFixed(1)} />
