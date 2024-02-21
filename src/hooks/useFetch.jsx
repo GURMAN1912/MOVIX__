@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react";
 import { fetchDataFromApi } from "../utils/api";
 
-export default function useFetch(url) {
+export default function UseFetch(url) {
     const [data,setData]=useState(null);
     const [loading,setLoading]=useState(null);
     const [error,setError]=useState(null)

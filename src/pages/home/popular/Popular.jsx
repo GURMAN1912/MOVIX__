@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ContentWrapper from '../../../components/ContentWrapper/ContentWrapper'
 import SwitchTab from '../../../components/SwitchTabs/SwitchTab'
-import useFetch from '../../../hooks/useFetch'
+import useFetch from '../../../hooks/UseFetch'
 import Carousel from '../../../components/carousel/Carousel'
 const Popular = () => {
     const [endPoint,setEndPoint]=useState('movie')

@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import "./styles.scss";
 import { PlayButton } from "../PlayButton";
 import ContentWrapper from "../../../components/ContentWrapper/ContentWrapper";
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../../hooks/UseFetch";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImg/Img";
