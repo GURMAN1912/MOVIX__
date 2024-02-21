@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import "./styles.scss";
 import { PlayButton } from "../PlayButton";
 import ContentWrapper from "../../../components/ContentWrapper/ContentWrapper";
-import useFetch from "../../../hooks/UseFetch";
+import UseFetch from "../../../hooks/UseFetch";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImg/Img";
@@ -18,7 +18,7 @@ const DetailsBanner = ({ video, crew }) => {
     const [videoId,setVideoId]=useState(null)
 
     const {mediaType,id}=useParams();
-  const {data,loading}=useFetch(`/${mediaType}/${id}`)
+  const {data,loading}=UseFetch(`/${mediaType}/${id}`)
   const{url}=useSelector((state)=> state.home)
   const _genres=data?.genres?.map((g)=>g.id)
   const director=crew?.filter((f)=>f.job==="Director")
