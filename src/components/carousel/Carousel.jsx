@@ -16,7 +16,7 @@ import Genres from "../genres/Genres";
 
 
 
-export default function Carousel({data,loading}) {
+export default function Carousel({data,loading ,endpoint ,title} ) {
     const carouselContainer=useRef();
     const {url}=useSelector((state)=>state.home)
     const navigate=useNavigate();
@@ -49,6 +49,7 @@ export default function Carousel({data,loading}) {
 
     <div className="carousel">
         <ContentWrapper>
+            {title && <div className="carouselTitle">{title}</div> }
             <BsFillArrowLeftCircleFill 
                 className="carouselLeftNav arrow"
                 onClick={()=>navigation('left')}
@@ -63,7 +64,7 @@ export default function Carousel({data,loading}) {
                         const posterUrl=item.poster_path? url.poster+item.poster_path:PosterFallback;
                         console.log(posterUrl)
                         return(
-                            <div className="carouselItem" onClick={()=>navigate(`/${item.media_type? item.media_type :item.title        ? 'movie':'tv'}/${item.id}`)} key={item.id}>
+                            <div className="carouselItem" onClick={()=>navigate(`/${item.media_type? item.media_type :item.title? 'movie':'tv'}/${item.id}`)} key={item.id}>
                                 <div className="posterBlock">
                                     <Img src={posterUrl}/>
                                 <CircleRating rating={item.vote_average.toFixed(1)} />
